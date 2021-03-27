@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            #logo {
+                width: 300px;
+                height: 70px;
+            }
+            #mainpix {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+            }
+            #gallerypix {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+            }
+            .image-gallery {
+                max-width: 120px;
+            }
+        </style>
+        <title>Photographer Page</title>
+    </head>
+    <body>
+        <header id="header" aria-hidden="false">
+            <a href="index.html" class="logo"
+                ><img
+                    src="./fisheye-logo.svg"
+                    id="logo"
+                    alt="Fisheye home page"
+                    title="Fisheye home page"
+            /></a>
+        </header>
+        <ul class="cards" id="photographer"></ul>
+        <div class="trier">Trier par</div>
+        <ul class="cards" id="gallery"></ul>
+        <ul class="cards" id="price"></ul>
+    </body>
+    <script src="data.js"></script>
+    <script src="Cphotographers.js" defer></script>
+    <script src="Cmedias.js" defer></script>
+    <script src="photographerPage.js" defer></script>
+</html>
