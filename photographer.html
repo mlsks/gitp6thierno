@@ -5,25 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <style>
-            #logo {
-                width: 300px;
-                height: 70px;
-            }
-            #mainpix {
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-            }
-            #gallerypix {
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-            }
-            .image-gallery {
-                max-width: 120px;
-            }
-        </style>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="./css/photographerPage.css"
+        />
+        <style></style>
         <title>Photographer Page</title>
     </head>
     <body>
@@ -36,13 +23,31 @@
                     title="Fisheye home page"
             /></a>
         </header>
-        <ul class="cards" id="photographer"></ul>
-        <div class="trier">Trier par</div>
+        <section class="photographer">
+            <ul class="cards" id="photographer"></ul>
+        </section>
+        <div class="trier">
+            <p>Trier par &nbsp; &nbsp;</p>
+            <div class="accordion">
+                <div class="tab">
+                    <span class="title"> Popularité </span>
+                    <input type="checkbox" id="one" />
+                    <label for="one">
+                        <div class="mark"></div>
+                    </label>
+                    <div class="panel">
+                        <p id="titre">Titre</p>
+                        <p id="date">Date</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <ul class="cards" id="gallery"></ul>
         <ul class="cards" id="price"></ul>
     </body>
-    <script src="data.js"></script>
-    <script src="Cphotographers.js" defer></script>
-    <script src="Cmedias.js" defer></script>
-    <script src="photographerPage.js" defer></script>
+    <script src="js/data.js"></script>
+    <script src="js/Cphotographers.js" defer></script>
+    <script src="js/Cphotographerpage.js" defer></script>
+    <script src="js/Cmedias.js" defer></script>
+    <script src="js/photographerPage.js" defer></script>
 </html>

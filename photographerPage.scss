@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+$mainColor: #901c1c;
+$secondColor: #d3573c;
+$grey: #525252;
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    height: 120px;
+}
+
+#logo {
+    width: 360px;
+    height: 90px;
+    margin-left: -20px;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    color: $secondColor;
+    margin-top: -1rem;
+    margin-bottom: 0;
+}
+
+.contactMe {
+    margin-left: -10%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+    background-color: $mainColor;
+    border: none;
+    height: 4.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card__place {
+    color: $mainColor;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.card__tagline {
+    color: $grey;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.cards__item {
+    list-style-type: none;
+}
+
+#mainpix {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.tag {
+    display: flex;
+    flex-direction: row;
+    // flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-left: 0px;
+    max-width: 400px;
+}
+
+#allTags {
+    color: #901c1c;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 3px;
+    border: 1px solid $grey;
+    border-radius: 14px;
+    // margin: auto;
+    margin-right: 0.5rem;
+    list-style-type: none;
+    // cursor: none;
+}
+
+#photographer.cards {
+    margin: 0;
+}
+
+.photographer {
+    display: flex;
+    // flex-direction: row;
+    // max-width: 900px;
+    margin: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 1120px;
+    // min-width: 900px;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    margin-left: 40px;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+}
+
+.trier {
+    color: $grey;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-left: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+// Accordéon
+
+.accordion {
+    background: $mainColor;
+    color: white;
+    max-width: 130px;
+    margin: 0px auto;
+    margin-left: 100px;
+    margin-top: -55px;
+    padding: 10px;
+    padding-bottom: 0.5rem;
+    border-radius: 10px;
+}
+
+.accordion .title {
+    font-size: 1rem;
+}
+
+#titre,
+#date {
+    cursor: pointer;
+}
+
+.accordion:after {
+    font-size: 60px;
+    font-weight: 900;
+    color: white;
+    position: absolute;
+    height: 70px;
+    top: 140px;
+    left: -188px;
+    transform: rotate(-90deg);
+}
+
+.accordion p {
+    font-size: 1rem;
+    // width: 18px;
+    margin: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.accordion p:first-child {
+    margin-top: 0.5rem;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.accordion label {
+    float: right;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    padding-right: 0;
+}
+
+.accordion label .mark {
+    height: 10px;
+    width: 10px;
+    border-left: 4px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
+    transition: transform 0.8s ease;
+    transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+.accordion input[type="checkbox"] {
+    display: none;
+    float: right;
+}
+.accordion input[type="checkbox"]:checked ~ .panel {
+    height: 86px;
+}
+.accordion input[type="checkbox"]:checked ~ label .mark {
+    transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.accordion .panel {
+    // margin: 10px 10px;
+    height: 0px;
+    transition: height ease 0.7s, padding ease 0.7s;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+//  Gallery
+
+#gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1300px;
+}
+
+.cards {
+    padding-left: 0;
+}
+
+.cards__gallery {
+    padding: 40px;
+    padding-top: 0px;
+    list-style-type: none;
+}
+
+.image-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 340px;
+    height: 340px;
+    border-radius: 8px;
+}
+
+.p_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -0.6rem;
+}
+
+#max_text {
+    width: 20ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.p_row > p {
+    font-size: 1.2rem;
+    color: $mainColor;
+}

@@ -89,15 +89,15 @@ const data = {
             date: "2013-08-12",
             price: 55,
         },
-        {
-            id: 9275938,
-            photographerId: 82,
-            image: "Event-_eddingGazebo.jpg",
-            tags: ["events"],
-            likes: 69,
-            date: "2018-02-22",
-            price: 55,
-        },
+        // {
+        //     id: 9275938,
+        //     photographerId: 82,
+        //     image: "Event_eddingGazebo.jpg",
+        //     tags: ["events"],
+        //     likes: 69,
+        //     date: "2018-02-22",
+        //     price: 55,
+        // },
         {
             id: 2053494,
             photographerId: 82,
@@ -191,7 +191,7 @@ const data = {
         {
             id: 725639493,
             photographerId: 925,
-            image: "Event_ProductPitchjpg",
+            image: "Event_ProductPitch.jpg",
             tags: ["events"],
             likes: 3,
             date: "2019-05-20",
