@@ -66,6 +66,7 @@ class Photographer {
                     this.portrait
                 }" class="img__card pointeur" id="mainpix" > 
                 </div>
+
                 <button class="contactMe">Contactez-moi</button>
                     
                 <div class='card__content'>
@@ -79,11 +80,14 @@ class Photographer {
                     <p class='card__text card__tagline'>
                     ${this.tagline}
                     </p>
+
+                    <button id="contactMe">Contactez-moi</button>
+
                     <ul class="tag" >
                     ${this.tags
                         .map(
                             (tag) =>
-                                `<li class='photographer-tag' id="allTags">#${tag}</li>`
+                                `<li class='photographer-tag allTags' id="${tag}" >#${tag}</li>`
                         )
                         .join("")}                                 
                     </ul>
@@ -95,10 +99,10 @@ class Photographer {
     // Méthode sur photographer.html
     displayPrice() {
         return `
-        <li class="cards__item "> 
-            <div class='card'>
+        <li class="cards__price "> 
+            <div class=''>
             <p class='card__text card__price'>
-            ${this.price}€/jour
+            ${this.price}€ / jour
             </p>
             </div>
         </li>

@@ -234,6 +234,13 @@ li.photographer-tag {
     list-style-type: none;
 }
 
+li.photographer-tag:hover {
+    color: white;
+    background-color: #901c1c;
+    border: none;
+    border: 1px solid #901c1c;
+}
+
 #allTags {
     display: flex;
     flex-direction: row;
