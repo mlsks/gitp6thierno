@@ -34,9 +34,10 @@
                 <p>Trier par &nbsp; &nbsp;</p>
                 <div class="accordion">
                     <div class="tab">
-                        <span class="title"> Popularité </span>
+                        <span style="cursor: pointer" class="title" id="popularité" > Popularité </span>
                         <input type="checkbox" id="one" />
                         <label class="mark" for="one">
+                            <!-- Chevron mark down -->
                             <div class="mark"></div>
                         </label>
                         <div class="panel">
@@ -46,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery">
+            <div class="gallery" id="galleryTop">
                 <ul class="cards" id="gallery"></ul>
             </div>
             <div id="likesPrice">

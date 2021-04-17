@@ -109,5 +109,3 @@ class Photographer {
         `
     }
 }
-
-/* <a href="photographer.html?id=${this.id}" id="${this.id}"   </a> */

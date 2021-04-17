@@ -28,7 +28,6 @@ class PhotographerPage {
             (data) => data.photographerId == id
         )
         // console.log(resmediaFiltered)
-        // console.log(1)
 
         // eslint-disable-next-line no-undef
         this.photographer = new Photographer(
@@ -41,7 +40,6 @@ class PhotographerPage {
             resdataFiltered[0].price,
             resdataFiltered[0].portrait
         )
-        console.log(resmediaFiltered)
 
         for (let i = 0; i < resmediaFiltered.length; i++) {
             let type = "image"
@@ -52,7 +50,7 @@ class PhotographerPage {
         }
     }
 
-    // DISPLAY MEDIAS METHOD
+    // DISPLAY Photographer, Likes and Price, and Gallery
     display(id) {
         this.getPhotographer(id)
         document.getElementById(
@@ -62,28 +60,6 @@ class PhotographerPage {
         document.getElementById(
             "price"
         ).innerHTML = this.photographer.displayPrice()
-
-        let displayByPopularity = ""
-        for (let i = 0; i < this.medias.length; i++) {
-            this.medias.sort(function (a, b) {
-                // Sort by likes
-                return b.likes - a.likes
-
-                // Sort by Tagline Alphabetically
-                // if (a.image < b.image) {
-                //     return -1
-                // }
-                // if (a.image > b.image) {
-                //     return 1
-                // }
-                // return 0
-
-                // Sort by date
-                // return a.date - b.date
-            })
-            displayByPopularity += this.medias[i].gallery()
-        }
-        document.getElementById("gallery").innerHTML = displayByPopularity
 
         // Total likes and price for one photographer
         let photographerLikesArray = Array.from(
@@ -111,23 +87,164 @@ class PhotographerPage {
             </li>
             `
 
-        // document.getElementById("titre").addEventListener("click", function () {
-        //     let displayByTitle = ""
-        //     for (let i = 0; i < this.medias.length; i++) {
-        //         this.medias.sort(function (a, b) {
-        //             if (a.image < b.image) {
-        //                 return -1
-        //             }
-        //             if (a.image > b.image) {
-        //                 return 1
-        //             }
-        //             return 0
-        //         })
-        //         displayByTitle += this.medias[i].gallery()
-        //     }
-        //     document.getElementById("gallery").innerHTML = displayByTitle
-        // })
-    }
+        // ***
 
-    // Increment like
+        // DISPLAY Photographer Gallery
+
+        let thisMedias = this.medias
+
+        // Unique Tag
+        let tagsNames = thisMedias.map((item) => item.tags)
+        // Create one array from multidimensioned array
+        let merged = [].concat.apply([], tagsNames)
+        let uniqueTag = [...new Set(merged)]
+
+        console.log("Tags array : " + uniqueTag)
+
+        // By popularity method
+        function byPopularity() {
+            let displayByPopularity = ""
+            for (let i = 0; i < thisMedias.length; i++) {
+                thisMedias.sort(function (a, b) {
+                    // Sort by likes
+                    return b.likes - a.likes
+                })
+                displayByPopularity += thisMedias[i].gallery()
+            }
+            document.getElementById("gallery").innerHTML = displayByPopularity
+        }
+        // Trigger function (first DOM paint)
+        byPopularity()
+        // Sorting Methods
+        // By Title
+        function byTitle() {
+            let displayByTitle = ""
+            for (let i = 0; i < thisMedias.length; i++) {
+                thisMedias.sort(function (a, b) {
+                    //Sort Before
+                    if ((a.image || a.video) < (b.image || b.video)) {
+                        return -1
+                    }
+                    //Sort after
+                    if ((a.image || a.video) > (b.image || b.video)) {
+                        return 1
+                    }
+                    return 0
+                })
+                displayByTitle += thisMedias[i].gallery()
+            }
+            document.getElementById("gallery").innerHTML = displayByTitle
+        }
+
+        //  By Date
+        function byDate() {
+            let displayByDate = ""
+            for (let i = 0; i < thisMedias.length; i++) {
+                thisMedias.sort(function (a, b) {
+                    return new Date(b.date) - new Date(a.date)
+                })
+                displayByDate += thisMedias[i].gallery()
+            }
+            document.getElementById("gallery").innerHTML = displayByDate
+        }
+
+        // By Tag
+        function byTags() {
+            let displayByPopularity = ""
+
+            for (let i = 0; i < thisMedias.length; i++) {
+                thisMedias.sort(function (a, b) {
+                    return new Date(b.date) - new Date(a.date)
+                })
+                displayByPopularity += thisMedias[i].gallery()
+            }
+
+            document.getElementById("gallery").innerHTML = displayByPopularity
+        }
+
+        // console.log(
+        //     uniqueTag[0] == document.getElementsByClassName("allTags")[2].id
+        // )
+        console.log(uniqueTag)
+        // console.log(document.getElementsByClassName("allTags")[2].id)
+
+        document
+            .querySelector(".allTags")
+            .addEventListener("click", function (e) {
+                if (e.target && e.target.nodeName == "LI") {
+                    // List item found!  Output the ID!
+                    console.log("List item ", e.target.id, " was clicked!")
+                    console.log(e.target)
+                    console.log(e.target.id)
+                    // app.filterTag(e.target.id)
+                }
+            })
+
+        document
+            .querySelector(".price")
+            .addEventListener("click", function (e) {
+                if (e.target && e.target.nodeName == "P") {
+                    // List item found!  Output the ID!
+                    console.log(
+                        "List item ",
+                        e.target.innerHTML,
+                        " was clicked!"
+                    )
+                    console.log(e.target)
+                    console.log(e.target.innerHTML)
+                    // app.filterTag(e.target.id)
+                }
+            })
+
+        // ***
+
+        // Trigger Sorting Method
+        let sortPopularity = document.getElementById("popularité")
+        let sortTitre = document.getElementById("titre")
+        let sortDate = document.getElementById("date")
+
+        let sortTags = document.querySelector(".allTags")
+
+        let newElementGallerySorted = document.querySelector("#gallery")
+
+        // Clear Gallery Fragment
+        function clearFragment() {
+            var list = document.getElementById("gallery")
+            while (list.hasChildNodes()) {
+                list.removeChild(list.lastChild)
+            }
+        }
+
+        // Sort by Tags
+        // sortTags.addEventListener("click", function () {
+        //     clearFragment()
+        //     let newFragment = new DocumentFragment()
+        //     byTags()
+        //     newElementGallerySorted.appendChild(newFragment)
+        // })
+
+        // Sort by Popularité
+        sortPopularity.addEventListener("click", function () {
+            clearFragment()
+            let newFragment = new DocumentFragment()
+            byPopularity()
+            newElementGallerySorted.appendChild(newFragment)
+        })
+
+        // Sort by Titre
+        sortTitre.addEventListener("click", function () {
+            clearFragment()
+            let newFragment = new DocumentFragment()
+            byTitle()
+            newElementGallerySorted.appendChild(newFragment)
+        })
+
+        // Sort by Date
+        sortDate.addEventListener("click", function () {
+            clearFragment()
+            let newFragment = new DocumentFragment()
+            byDate()
+            newElementGallerySorted.appendChild(newFragment)
+        })
+    }
 }

@@ -31,7 +31,8 @@ class Photo {
                 <img src="photos/${this.image}" class="image-gallery">
                 <div class="p_row">
                     <p id="max_text">${tagline}</p>
-                    <p>${this.price}€&nbsp;</p>
+                    <p class="price">${this.price}</p>
+                    <p>€&nbsp;</p>
                     <p class="likes">${this.likes}</p>
                     <p class="coeur">&#10084;</p>   
                 </div>
@@ -71,7 +72,8 @@ class Video {
                     </video>
                     <div class="p_row">
                         <p id="max_text">${tagline}</p>
-                        <p>${this.price}€&nbsp;</p>
+                        <p class="price">${this.price}</p>
+                        <p>€&nbsp;</p>
                         <p class="likes ${this.likes}">${this.likes}</p>
                         <p class="coeur">&#10084;</p> 
                     </div>
